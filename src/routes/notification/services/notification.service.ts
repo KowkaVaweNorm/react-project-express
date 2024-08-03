@@ -1,37 +1,37 @@
-// services/question.service.ts
+// services/notifications.service.ts
 
-import { Question } from "../repositories/notification.repository";
-import { QuestionItem } from "../types/domain";
+import { NotificationRepository } from "../repositories/notification.repository";
+import { NotificationItem } from "../types/domain";
 
-class QuestionService {
-  private questionRepository: Question;
+class NotificationService {
+  private notificationRepository: NotificationRepository;
 
-  constructor(questionRepository: Question) {
-    this.questionRepository = questionRepository;
+  constructor(notificationRepository: NotificationRepository) {
+    this.notificationRepository = notificationRepository;
   }
 
-  public async getAllQuestions(): Promise<QuestionItem[]> {
-    return await this.questionRepository.getAll();
+  public async getAllNotifications(): Promise<NotificationItem[]> {
+    return await this.notificationRepository.getAll();
   }
 
-  public async getQuestionById(id: number): Promise<QuestionItem | undefined> {
-    return await this.questionRepository.getById(id);
+  public async getNotificationById(id: number): Promise<NotificationItem | undefined> {
+    return await this.notificationRepository.getById(id);
   }
 
-  public async createQuestion(question: QuestionItem): Promise<boolean> {
-    return await this.questionRepository.create(question);
+  public async createNotification(notification: NotificationItem): Promise<boolean> {
+    return await this.notificationRepository.create(notification);
   }
 
-  public async updateQuestion(
+  public async updateNotification(
     id: number,
-    question: QuestionItem,
+    question: NotificationItem,
   ): Promise<boolean> {
-    return await this.questionRepository.update(id, question);
+    return await this.notificationRepository.update(id, question);
   }
 
-  public async deleteQuestion(id: number): Promise<boolean> {
-    return await this.questionRepository.delete(id);
+  public async deleteNotification(id: number): Promise<boolean> {
+    return await this.notificationRepository.delete(id);
   }
 }
 
-export default QuestionService;
+export default NotificationService;

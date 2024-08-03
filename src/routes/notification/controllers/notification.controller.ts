@@ -1,8 +1,10 @@
 
 // controllers/notification.controller.ts
 import { Request, Response, NextFunction } from 'express';
+import NotificationService from '../services/notification.service';
+import { NotificationRepository } from '../repositories/notification.repository';
 
-const notificationService = new NotificationService(notificationRepository);
+const notificationService = new NotificationService(new NotificationRepository);
 
 class NotificationController {
   public async getAll(req: Request, res: Response, next: NextFunction): Promise<void> {
@@ -56,4 +58,4 @@ class NotificationController {
   // }
 }
 
-export default new QuestionController();
+export default new NotificationController();
