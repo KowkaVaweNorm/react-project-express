@@ -1,9 +1,9 @@
-import { Router } from 'express';
-import notificationController from '../controllers/notification.controller';
+import articlesController from "@/controllers/articles.controller";
+import { Router } from "express";
 
 const router = Router();
 
-router.get('/', (req, res, next) => notificationController.getAll(req, res, next));
+router.get("/", articlesController.getAll);
 // router.get('/:id', (req, res, next) => notificationController.getById(req, res, next));
 // router.post('/', (req, res, next) => notificationController.create(req, res, next));
 // router.put('/:id', (req, res, next) => notificationController.update(req, res, next));

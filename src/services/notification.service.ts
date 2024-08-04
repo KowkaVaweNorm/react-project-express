@@ -1,7 +1,8 @@
 // services/notifications.service.ts
 
-import { NotificationRepository } from "../repositories/notification.repository";
-import { NotificationItem } from "../types/domain";
+import { NotificationItem } from "@/dtos/notifications/response";
+import { NotificationRepository } from "@/repositories/notification.repository";
+
 
 class NotificationService {
   private notificationRepository: NotificationRepository;
@@ -14,11 +15,15 @@ class NotificationService {
     return await this.notificationRepository.getAll();
   }
 
-  public async getNotificationById(id: number): Promise<NotificationItem | undefined> {
+  public async getNotificationById(
+    id: number,
+  ): Promise<NotificationItem | undefined> {
     return await this.notificationRepository.getById(id);
   }
 
-  public async createNotification(notification: NotificationItem): Promise<boolean> {
+  public async createNotification(
+    notification: NotificationItem,
+  ): Promise<boolean> {
     return await this.notificationRepository.create(notification);
   }
 

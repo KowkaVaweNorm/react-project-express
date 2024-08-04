@@ -1,29 +1,21 @@
-// import express from "express";
-// import QuestionService from "../services/question.service";
-// import { Question } from "../repositories/question.repository";
-// export const router = express.Router();
+// controllers/notification.controller.ts
+import { Request, Response, NextFunction } from "express";
+import { NotificationRepository } from "../repositories/notification.repository";
+import NotificationService from "@/services/notification.service";
 
-// const questionRepository = new Question();
-// const questionService = new QuestionService(questionRepository);
+const notificationService = new NotificationService(
+  new NotificationRepository(),
+);
 
-// router.get("/", (req, res) => {
-//   res.send(questionService.getAllQuestions);
-// });
-
-
-// controllers/question.controller.ts
-import { Request, Response, NextFunction } from 'express';
-import QuestionService from '../services/question.service';
-import { Question } from '../repositories/question.repository';
-
-const questionRepository = new Question();
-const questionService = new QuestionService(questionRepository);
-
-class QuestionController {
-  public async getAll(req: Request, res: Response, next: NextFunction): Promise<void> {
+class NotificationController {
+  public async getAll(
+    req: Request,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void> {
     try {
-      const questions = await questionService.getAllQuestions();
-      res.status(200).json(questions);
+      const notifications = await notificationService.getAllNotifications();
+      res.status(200).json(notifications);
     } catch (error) {
       next(error);
     }
@@ -71,4 +63,4 @@ class QuestionController {
   // }
 }
 
-export default new QuestionController();
+export default new NotificationController();

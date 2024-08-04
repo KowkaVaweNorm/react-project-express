@@ -1,6 +1,5 @@
-import { NotificationItemZod } from './../types/domain';
-import { Repository } from "@/shared/repository/Repository";
-import { NotificationItem } from "../types/domain";
+import { NotificationItem, NotificationItemZod } from "@/dtos/notifications/response";
+import { Repository } from "@/repositories/repository/Repository";
 
 export class NotificationRepository extends Repository<NotificationItem> {
   constructor(notifications?: NotificationItem[]) {
@@ -42,7 +41,7 @@ export class NotificationRepository extends Repository<NotificationItem> {
   }
 
   getAll(): Promise<NotificationItem[]> {
-    if(NotificationItemZod.array().parse(this.members)){
+    if (NotificationItemZod.array().parse(this.members)) {
       return new Promise((res, rej) => res(this.members));
     }
     return new Promise((res, rej) => rej());
