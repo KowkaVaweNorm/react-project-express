@@ -1,5 +1,5 @@
 import { Express } from "express";
-import notificationApi from "./notification";
+import notificationApi from "./notifications";
 import articlesApi from "./artciles";
 
 export const setupRoutes = (app: Express) => {
