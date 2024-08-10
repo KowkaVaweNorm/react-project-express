@@ -1,6 +1,6 @@
 // services/notifications.service.ts
 
-import { NotificationItem } from "@/dtos/notifications/response";
+import { NotificationItem } from "@/entities/notification.entity";
 import { NotificationRepository } from "@/repositories/notification.repository";
 
 
@@ -11,8 +11,13 @@ class NotificationService {
     this.notificationRepository = notificationRepository;
   }
 
-  public async getAllNotifications(): Promise<NotificationItem[]> {
-    return await this.notificationRepository.getAll();
+  public async getAllNotifications(){
+    try {
+      const result = await this.notificationRepository.getAll();
+      return result
+    }catch (error) {
+      return []
+    }
   }
 
   public async getNotificationById(

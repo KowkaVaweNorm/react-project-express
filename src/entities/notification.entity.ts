@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const NotificationItemZodDto = z.object({
+export const NotificationItemZod = z.object({
   id: z.string(),
   title: z.string(),
   description: z.string().nullable(),
@@ -8,4 +8,4 @@ export const NotificationItemZodDto = z.object({
   href: z.string().optional(),
 });
 
-export type NotificationItemDto = z.infer<typeof NotificationItemZodDto>;
+export type NotificationItem = z.infer<typeof NotificationItemZod>;

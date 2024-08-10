@@ -1,5 +1,6 @@
-import { NotificationItem, NotificationItemZod } from "@/dtos/notifications/response";
+import { NotificationItem, NotificationItemZod } from "@/entities/notification.entity";
 import { Repository } from "@/repositories/repository/Repository";
+import { ErrorCodeEnum } from "./consts/ErrorCode";
 
 export class NotificationRepository extends Repository<NotificationItem> {
   constructor(notifications?: NotificationItem[]) {
@@ -40,11 +41,13 @@ export class NotificationRepository extends Repository<NotificationItem> {
     super(notifications ?? list);
   }
 
-  getAll(): Promise<NotificationItem[]> {
-    if (NotificationItemZod.array().parse(this.members)) {
-      return new Promise((res, rej) => res(this.members));
+  async getAll() {
+    try {
+      return this.members;
+    } catch (error) {
+      // return Promise.resolve(this.members);
+      return Promise.reject(ErrorCodeEnum.PARSE_TYPE);
     }
-    return new Promise((res, rej) => rej());
   }
 
   getById(id: number): Promise<NotificationItem | undefined> {
