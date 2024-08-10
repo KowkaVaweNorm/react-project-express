@@ -1,3 +1,5 @@
+import { ErrorCodeEnum } from "../consts/ErrorCode";
+
 export abstract class Repository<T> {
   protected members: T[];
 
@@ -5,9 +7,9 @@ export abstract class Repository<T> {
     this.members = members;
   }
 
-  abstract getAll(): Promise<T[]>;
-  abstract getById(id: number): Promise<T | undefined>;
-  abstract create(item: T): Promise<boolean>;
-  abstract update(id: number, item: T): Promise<boolean>;
-  abstract delete(id: number): Promise<boolean>;
+  abstract getAll(): Promise<T[] | ErrorCodeEnum>;
+  abstract getById(id: number): Promise<T | undefined | ErrorCodeEnum>;
+  abstract create(item: T): Promise<boolean | ErrorCodeEnum>;
+  abstract update(id: number, item: T): Promise<boolean | ErrorCodeEnum>;
+  abstract delete(id: number): Promise<boolean | ErrorCodeEnum>;
 }

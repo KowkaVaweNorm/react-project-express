@@ -1,5 +1,8 @@
 // services/Comments.service.ts
 
+import { CommentItem } from "@/entities/comment.entity";
+import { CommentRepository } from "@/repositories/comment.repository";
+
 class CommentService {
   private CommentRepository: CommentRepository;
 
