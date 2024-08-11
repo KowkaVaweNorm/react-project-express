@@ -1,11 +1,8 @@
-import { z } from "zod";
 
-export const NotificationItemZod = z.object({
-  id: z.string(),
-  title: z.string(),
-  description: z.string().nullable(),
-  userId: z.string(),
-  href: z.string().optional(),
-});
-
-export type NotificationItem = z.infer<typeof NotificationItemZod>;
+export type NotificationItem = {
+  id: string;
+  title: string;
+  description: string | null;
+  userId: string;
+  href?: string | undefined;
+}

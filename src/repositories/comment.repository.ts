@@ -203,14 +203,6 @@ export class CommentRepository extends Repository<CommentItem> {
         id: "Fmg06f6",
       },
       {
-        data: {
-          articleId: "1",
-          userId: "1",
-          text: "Добавляю новый комментарий",
-        },
-        id: "qcm3nYD",
-      },
-      {
         articleId: "1",
         userId: "1",
         text: "Добавляю текст комментария",

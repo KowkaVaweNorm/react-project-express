@@ -1,4 +1,4 @@
-import { NotificationItem, NotificationItemZod } from "@/entities/notification.entity";
+import { NotificationItem } from "@/entities/notification.entity";
 import { Repository } from "@/repositories/repository/Repository";
 import { ErrorCodeEnum } from "./consts/ErrorCode";
 

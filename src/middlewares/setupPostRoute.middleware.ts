@@ -18,7 +18,7 @@ const responseHandler = (req: Request, res: Response, next: NextFunction) => {
   }
 
   res.json({
-    result: res.locals.data || null,
+    result: res.locals['data'] || null,
     errorCode: null,
     errorText: null,
     success: true,
