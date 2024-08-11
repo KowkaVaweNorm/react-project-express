@@ -6,9 +6,11 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsx watch src/index.ts",
-    "pret:check": "npx prettier . --write ",
-    "pret:fix": "npx prettier . --write ",
-    "check": "npm run pret:check && npx eslint ."
+    "format:check": "npx prettier . --check ",
+    "format:fix": "npx prettier . --write ",
+    "lint:ts": "eslint \"./src/**/*.ts\"",
+    "lint:ts:fix": "eslint \"**/*.ts\" --fix",
+    "precommit": "npm run format:check && npm rin lint:ts"
   },
   "author": "",
   "license": "ISC",
@@ -25,6 +27,7 @@
     "prettier": "3.3.2",
     "prisma": "^5.17.0",
     "tsx": "^4.16.0",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.2",
+    "typescript-eslint": "^8.0.1"
   }
 }
