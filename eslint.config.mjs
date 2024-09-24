@@ -56,12 +56,13 @@ export default tseslint.config(
       "@typescript-eslint/no-redundant-type-constituents": "warn",
       "@typescript-eslint/no-unnecessary-boolean-literal-compare": "warn",
       "@typescript-eslint/no-unnecessary-condition": "warn",
-       "@typescript-eslint/no-unnecessary-parameter-property-assignment": "warn"
+      "@typescript-eslint/no-unnecessary-parameter-property-assignment": "warn"
     },
     languageOptions: {
       parserOptions: {
         project: 'tsconfig.json',
       },
     },
+    files: ["/src/*"]
   }
 );

@@ -8,7 +8,7 @@ export const app = express();
 
 // Загрузка переменных окружения из .env файла
 dotenv.config();
-const port = process.env.PORT;
+const port = process.env["PORT"] || 8000;
 
 // Использование предварительных middleware
 setupPreRouteMiddlewares(app);
